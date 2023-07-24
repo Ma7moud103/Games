@@ -14,7 +14,6 @@ export class Games {
           link.classList.add("active")
         }
       });
-
     }
 
     let links = Array.from(
