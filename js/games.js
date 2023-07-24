@@ -3,7 +3,20 @@ export class Games {
     if (localStorage.getItem("api") != null) {
       let data = JSON.parse(localStorage.getItem("api"));
       this.display(data);
+      let activeLink = document.querySelectorAll(".games nav small ul li a.active")
+
+      let links = Array.from(
+        document.querySelectorAll(".games nav small ul li a")
+      );
+      links.forEach((link) => {
+        link.classList.remove("active")
+        if (link.id === localStorage.getItem("MainLink")) {
+          link.classList.add("active")
+        }
+      });
+
     }
+
     let links = Array.from(
       document.querySelectorAll(".games nav small ul li a")
     );
@@ -11,6 +24,7 @@ export class Games {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         this.getData(link.id);
+        localStorage.setItem("MainLink", link.id)
       });
     });
   }
@@ -25,7 +39,7 @@ export class Games {
     };
 
     let content = document.getElementById("content");
-    if ((content.innerHTML += "")) {
+    if (content.innerHTML += "") {
       content.innerHTML = "";
     }
 

@@ -1,5 +1,6 @@
 import { Games } from "./games.js";
 import { Detalis } from "./details.js";
+
 let links = document.querySelectorAll(".navbar-nav .nav-item .nav-link");
 links.forEach((link) => {
   link.addEventListener("click", function (e) {
@@ -9,7 +10,9 @@ links.forEach((link) => {
     e.target.classList.add("active");
   });
 });
+
 new WOW().init();
+
 var typed = new Typed(".Game", {
   /**
    * @property {array} strings strings to be typed
