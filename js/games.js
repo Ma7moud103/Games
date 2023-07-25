@@ -3,7 +3,6 @@ export class Games {
     if (localStorage.getItem("api") != null) {
       let data = JSON.parse(localStorage.getItem("api"));
       this.display(data);
-      let activeLink = document.querySelectorAll(".games nav small ul li a.active")
 
       let links = Array.from(
         document.querySelectorAll(".games nav small ul li a")
@@ -20,6 +19,7 @@ export class Games {
       document.querySelectorAll(".games nav small ul li a")
     );
     links.forEach((link) => {
+      localStorage.setItem("MainLink", link.id)
       link.addEventListener("click", (e) => {
         e.preventDefault();
         this.getData(link.id);
