@@ -1,10 +1,13 @@
 export class Games {
   constructor() {
-    this.display(this.getData("mmorpg"))
+
     if (localStorage.getItem("api") != null) {
       let data = JSON.parse(localStorage.getItem("api"));
       this.display(data);
+    } else {
+      this.display(this.getData("mmorpg"))
     }
+
     if (localStorage.getItem("MainLink") != null) {
       let links = Array.from(
         document.querySelectorAll(".games nav small ul li a")

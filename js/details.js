@@ -35,7 +35,7 @@ export class Detalis {
                         <p>Category: <span class="badge text-bg-info"> ${genre}</span> </p>
                         <p>Platform: <span class="badge text-bg-info"> ${platform}</span> </p>
                         <p>Status: <span class="badge text-bg-info"> Live</span> </p>
-                        <p class="small">${short_description}</p>
+                        <p class="small">${short_description.split(" /")}</p>
                         <a class="btn btn-outline-warning" target="_blank"
                             href="${game_url}">Show Game</a>
                     </div>
