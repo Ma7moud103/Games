@@ -1,12 +1,15 @@
 export class Games {
   constructor() {
+    this.display(this.getData("mmorpg"))
     if (localStorage.getItem("api") != null) {
       let data = JSON.parse(localStorage.getItem("api"));
       this.display(data);
-
+    }
+    if (localStorage.getItem("MainLink") != null) {
       let links = Array.from(
         document.querySelectorAll(".games nav small ul li a")
-      );
+      )
+
       links.forEach((link) => {
         link.classList.remove("active")
         if (link.id === localStorage.getItem("MainLink")) {
@@ -52,7 +55,7 @@ export class Games {
   }
 
   async display(result) {
-    result.forEach((obj) => {
+    return await result.forEach((obj) => {
       let { developer, genre, id, platform, short_description, thumbnail } =
         obj;
 
